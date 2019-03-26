@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <link href="/assets/heartbooks.ico" rel="shortcut icon" type="image/x-icon" />
     <title>BookApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+
+
+
+  <!--Margin for right and left-->
+      <%= yield %>
+    
+       <!--<p id="notice"><%= notice %></p>-->
+
+</body>
 </html>

@@ -1,0 +1,53 @@
+// Place all the styles related to the conversations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+  padding-left: 100px;
+}
+
+[class*="col-"] {
+  
+}
+
+.col-3 {width: 45%;}
+
+.menu {
+  margin: 0;
+  padding-left: 100px;
+
+}
+
+.menu {
+  padding-left: 70px;
+  display: inline-block;
+  border-bottom: double;
+  border-bottom-color: #009688;
+
+}
+
+.menu:hover {
+  background-color: #88d498;
+}
+
+.profpics {
+  height: 80px;
+  width: 80px;
+  background-color: #e0f2f1;
+}
+
+.name {
+  padding-left: 100px;
+  color: black;
+  text-decoration: none;
+}

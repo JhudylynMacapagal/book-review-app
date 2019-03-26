@@ -1,0 +1,77 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+* {
+  box-sizing: border-box;
+}
+
+#btn-chat {
+	width: 15%;
+	height: 53px;
+	margin-left: 2px;
+	background-color: white; 
+  	color: black; 
+  	border: 2px solid #4CAF50;
+		#btn-chat:hover {
+  			background-color: #4CAF50;
+  			color: white;
+  		}
+}
+
+.txt-area {
+	width: 65%;
+	float: left;
+	margin-left:100px;
+}
+
+
+
+[class*="col1-"] {
+  float: left;
+  padding-left: 1000px;
+  
+}
+
+.col1-4 {width: 75%;}
+
+
+.menu1 {
+  margin: 0;
+  padding: 0;
+
+}
+
+.menu1 {
+  padding: 8px;
+  margin-bottom: 7px;
+  border-left-style: solid;
+  border-left-width: medium;
+}
+
+
+.container1 {
+ 
+  padding: 5px;
+  margin: 10px 0;
+  width: 900px;
+  padding-left: 100px;
+}
+
+
+.container1::after {
+  content: "";
+  clear: both;
+  display: table;
+
+}
+
+.f4 {
+	
+	margin-left: 55px;
+}
+
+.inline-block {
+	font-size: 18px;
+}

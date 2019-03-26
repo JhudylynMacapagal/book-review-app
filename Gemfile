@@ -3,6 +3,23 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.3'
 
+gem 'simple_form', '~> 4.1'
+gem 'bootstrap-sass'
+gem 'devise', '~> 4.6.1'
+gem 'jquery-rails', '~> 4.3.3'
+gem 'jquery', '~> 0.0.1'
+gem 'carrierwave', '~> 1.3.1'
+gem 'will_paginate', '~> 3.1.6'
+gem 'will_paginate-bootstrap', '~> 1.0.2'
+gem 'active_model_serializers'
+gem 'popper_js', '~> 1.14.5'
+gem 'sweetalert2', '~> 7.25', '>= 7.25.6'
+gem 'mini_magick', '~> 4.9', '>= 4.9.3'
+gem 'sidekiq', '~> 5.2', '>= 5.2.5'
+gem 'sinatra', '~> 2.0', '>= 2.0.5'
+
+#gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
