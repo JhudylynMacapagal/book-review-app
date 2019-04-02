@@ -43,38 +43,33 @@
 
 	      <ul class="nav navbar-nav navbar-right">
 
-	          <li class="dropdown">
+	 <!--          <li class="dropdown">
 	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
 	            <ul class="dropdown-menu" role="menu">
-	              <% Category.all.each do |category| %>
-	              <li class="<%= 'active' if params[:category] == category.name %>">
-	                <%= link_to category.name, books_path(category: category.name), class:  "link" %>
+	              <%# Category.all.each do |category| %>
+	              <li class="<%#= 'active' if params[:category] == category.name %>">
+	                <%#= link_to category.name, books_path(category: category.name), class:  "link" %>
 	              </li>
-	              <% end %>
+	              <%# end %>
 	            </ul>
-	          </li>
+	          </li> -->
 
 	        <!--remote true for hyperlinks-->
-	        <% if user_signed_in? %>
-	          <li><%= link_to "Add Book", new_book_path,  remote: true %></li>
-	          <li><%= link_to "Chat", conversations_path %></li>
+	       <!--  <%# if user_signed_in? %>
+	          <li><%#= link_to "Add Book", new_book_path,  remote: true %></li> -->
+	          <li><%= link_to "Back", conversations_path %></li>
 
-
-	           
-	          
-
-
-	         <% end %>
+	         <%# end %>
 
 	      </ul>
-
-	        <%= form_tag books_path, :method => 'get', class: "navbar-form navbar-right", role: "search" do %>
+<!-- 
+	        <%#= form_tag books_path, :method => 'get', class: "navbar-form navbar-right", role: "search" do %>
 	          <p>
-	            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Book Title" %>
-	            <%= submit_tag "Search", :title => nil, class: "btn btn-default", :style => "color: white; background-color:  #1a936f" %>
+	            <%#= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Book Title" %>
+	            <%#= submit_tag "Search", :title => nil, class: "btn btn-default", :style => "color: white; background-color:  #1a936f" %>
 	          </p>
-	        <% end %>
-
+	        <%# end %>
+ -->
 	  </div>
 	</nav>
 	 <!-- END NAVBAR-->

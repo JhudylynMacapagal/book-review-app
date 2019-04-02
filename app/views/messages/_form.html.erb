@@ -1,70 +1,94 @@
+
 <h3 class="title is-4">
-  <%= image_tag @conversation.recipient.avatar.url.to_s, class: "profpic" %> 
-  <%= @conversation.recipient.email %></h3>
-
-  <br><br>
-
-<% if @over_ten %>
-<%= link_to "Show previous", '?m=all', class:'button is-link' %>
-<% end %>
-
-<section id="messages" class="mb4">
-  <% @messages.each do |message| %>
+  <%= image_tag @conversation.recipient.avatar.url.to_s, class: "profpicsss" %> 
+  <span class="name"><%= @conversation.recipient.email %></span></h3>
+  <br>
+  <br>
+  <% if @over_five %>
+    <%= link_to "Show previous >>", '?m=all', class:'button is-link', id: "prev" %>
+  <% end %>
+  <section id="messages" class="mb4">
+    <% @messages.each do |message| %>
     <% if message.body %>
       <% user = User.find(message.user_id) %>
       <article class="message is-dark">
         <div class="message-body">
           <div class="container1">
-          <div class="col1-4 menu1">
-          <div class="inline-block"><strong>
-            <%= image_tag user.avatar.url.to_s, class: "profpic" %>
-            <%= user.email %></strong> <%= message.message_time %>
+            <div class="col1-4 menu1">
+
+                <% if user_signed_in? %>
+                  <% if user.id == current_user.id %>
+                  <div class="chatbg">
+              <div class="inline-block">
+                <strong>
+                  <%= image_tag user.avatar.url.to_s, class: "profpic1" %>
+                  <%= user.email %>
+                </strong> 
+                  <%= message.message_time %>
+              </div>
+                <div class="block pt4">
+                  <div class="f4"><%= message.body %></div>
+                </div>
+                  </div>
+
+                  <% else %>
+                  <div class="chatbg2">
+                    <div class="inline-block">
+                <strong>
+                  <%= image_tag user.avatar.url.to_s, class: "profpic1" %>
+                  <%= user.email %>
+                </strong> 
+                  <%= message.message_time %>
+              </div>
+                <div class="block pt4">
+                  <div class="f4"><%= message.body %></div>
+                </div>
+              </div>
+
+                  <% end %>
+                <% end %>
+            </div>
           </div>
-          <div class="block pt4">
-            <div class="f4"><%= message.body %></div>
-          </div>
-
-
-
-          <% if user_signed_in? %>
-
-    <% if user.id == current_user.id %>
-                <div class="links btn-group">
-
-        <%= link_to "Delete", conversation_message_path(@conversation.messages, message), method: :delete, data: { confirm: "Are you sure?", remote: true }, class: "btn btn-custom delete_review"  %>
-
-      </div>
-
-      <% end %>
-      <% end %>
-
-
-
-
-
-
-
-
         </div>
-      </div>
-    </div>
       </article>
     <% end %>
-  <% end %>
-</section>
+    <% end %>
+  </section>
 
 <%= form_for [@conversation, @message] do |f| %>
-
   <div class="txt-area">
-  <%= f.text_area :body, class: "form-control", placeholder: "Inquire about a book..." %>
-  <%= f.text_field :user_id, value: current_user.id, type: "hidden", class: "txt-chat"  %> 
+    <%= f.text_area :body, class: "form-control", placeholder: "Inquire about a book..." %>
+    <%= f.text_field :user_id, value: current_user.id, type: "hidden", class: "txt-chat", id: "msgs"  %> 
+  </div>
+    <div id="index"> 
+    <%= f.submit "Send message", id: "btn-chat", remote: true %>
     </div>
-  <%= f.submit "Send message", id: "btn-chat" %>
-
-
-
-
 <% end %>
+
 <br>
 
+<!-- 
 
+<script type="text/javascript">
+  $(function(){
+     $('#btn-chat').click(function(){
+       
+       var msg = $('#msgs').val();
+          $.ajax({
+            type: "GET",
+            url: "messages#index",
+            dataType: "JSON",
+            data: msg,
+            success:function(data){
+              console.log(data);
+            },
+            error:function(data){
+              console.log(data);
+            }
+          });  
+          return false;  
+          // event.preventDefault();          
+     });  
+  });
+</script>
+ -->

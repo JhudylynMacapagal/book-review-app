@@ -5,259 +5,186 @@
 
 /*PROFILE ANIMATION*/
 
- .badgescard, .firstinfo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
+  .portfolio{
+    padding:6%;
+    text-align:center;
+  }
+  .heading{
+    background: #fff;
+    padding: 1%;
+    text-align: left;
+    box-shadow: 0px 0px 4px 0px #545b62;
+  }
+  .heading img{
+    width: 10%;
+  }
+  .bio-info{
+    padding: 5%;
+    background:#fff;
+    box-shadow: 0px 0px 4px 0px #b0b3b7;
+  }
+  .name{
+    font-family: 'Charmonman', cursive;
+    font-weight:600;
+  }
+  .bio-image{
+    text-align:center;
+  }
+  .bio-image img{
+    border-radius: 10px;
+  }
+  .bio-content{
+    text-align:left;
+  }
+  .bio-content p{
+    font-weight:600;
+    font-size:30px;
+  }
 
 
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
-.content {
-
-  margin-top: 1%;
-  position: absolute;
-  top:50%;
-  left: 50%;
-  transform:translate(-50%, -50%);
-
-  justify-content: center;
-  align-items: center;
   
-  animation: animatop 0.9s cubic-bezier(0.425, 1.14, 0.47, 1.125) forwards;
-}
-
-.card {
-  max-width: 700px;
-  min-height: 300px;
-  padding: 20px;
-  border-radius: 3px;
-  background-color: white;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
-}
-.card:after {
-  content: '';
-  display: block;
- width: 200px;
-  height: 400px;
-  background: #1a936f;
-  position: absolute;
-  animation: rotatemagic 0.75s cubic-bezier(0.425, 1.04, 0.47, 1.105) 1s both;
-}
-
-/*LINE Bottom*/
-.badgescard {
-  margin-bottom: -8%;
-  padding: 10px 20px;
-  border-radius: 3px;
-  background-color: #1a936f;
-  width: 655px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  position: absolute;
-  z-index: -1;
-  left: 10px;
-  bottom: 10px;
-  animation: animainfos 0.5s cubic-bezier(0.425, 1.04, 0.47, 1.105) 0.75s forwards;
-}
-.badgescard span {
-  font-size: 1.6em;
-  margin: 0px 6px;
-  opacity: 0.6;
-}
-/*LINE Bottom*/
-
-.firstinfo {
-  flex-direction: row;
-  z-index: 2;
-  position: relative;
-}
-.firstinfo img {
-  /*border-radius: 50%;*/
-  max-width: 300px;
-  height: 300px;
-}
-.firstinfo .profileinfo {
-  padding: 0px 20px;
-}
-.firstinfo .profileinfo h1 {
-  font-size: 1.8em;
-}
-.firstinfo .profileinfo h3 {
-  font-size: 1.2em;
-  color: #009688;
-  font-style: italic;
-}
-.firstinfo .profileinfo p.bio {
-  padding: 10px 0px;
-  color: #5A5A5A;
-  line-height: 1.2;
-  font-style: initial;
-}
-
-@keyframes animatop {
-  0% {
-    opacity: 0;
-    bottom: -500px;
-  }
-  100% {
-    opacity: 1;
-    bottom: 0px;
-  }
-}
-@keyframes animainfos {
-  0% {
-    bottom: 10px;
-  }
-  100% {
-    bottom: -42px;
-  }
-}
-@keyframes rotatemagic {
-  0% {
-    opacity: 0;
-    transform: rotate(0deg);
-    top: -24px;
-    left: -253px;
-  }
-  100% {
-    transform: rotate(-30deg);
-    top: -24px;
-    left: -78px;
-  }
-}
-
 
 </style>
 
 
 
-	<!--NAVBAR-->
-	<nav class="navbar navbar-default" style="background: linear-gradient(to top, #1a936f 0%, #88d498 100%);">
+  <!--NAVBAR-->
+  <nav class="navbar navbar-default" style="background: linear-gradient(to top, #1a936f 0%, #88d498 100%);">
 
-	  <div class="container">
+    <div class="container">
 
-	       <div class="navbar-header">
+         <div class="navbar-header">
             <%= link_to "Book Review", root_path, class: "navbar-brand" %>
-	      </div>
+        </div>
 
-	      <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav">
 
-	        <% if user_signed_in? %>
-	       	    
-	       	    <li><%= image_tag @user.avatar.url.to_s, class: "profpic" %></li>
-	             <li style='color: white'><%= link_to current_user.full_name, current_user %></li>
-	            
+          <% if user_signed_in? %>
+              
+              <li><%= image_tag @user.avatar.url.to_s, class: "profpic" %></li>
+               <li style='color: white'><%= link_to current_user.full_name, current_user %></li>
+              
 
-	            <li><%= link_to "Sign Out", destroy_user_session_path, onclick: "sweetOut();", method: :delete %></li>
-	                <script type="text/javascript">
-	                    function sweetOut(){         
-	                        Swal.fire({
-	                          position: 'top-end',
-	                          type: 'success',
-	                          title: 'Logout successfully!',
-	                          showConfirmButton: false,
-	                          timer: 1500
-	                        })
-	                    } 
-	                </script>
-	        <% else %>   
-	            <li><%= link_to "Sign Up", new_user_registration_path %></li> 
-	            <li><%= link_to "Log In", new_user_session_path %></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, onclick: "sweetOut();", method: :delete %></li>
+                  <script type="text/javascript">
+                      function sweetOut(){         
+                          Swal.fire({
+                            position: 'top-end',
+                            type: 'success',
+                            title: 'Logout successfully!',
+                            showConfirmButton: false,
+                            timer: 1500
+                          })
+                      } 
+                  </script>
+          <% else %>   
+              <li><%= link_to "Sign Up", new_user_registration_path %></li> 
+              <li><%= link_to "Log In", new_user_session_path %></li>
 
-	        <% end %>
-	      </ul>
+          <% end %>
+        </ul>
 
 
-	      <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
 
-	          <li class="dropdown">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
-	            <ul class="dropdown-menu" role="menu">
-	              <% Category.all.each do |category| %>
-	              <li class="<%= 'active' if params[:category] == category.name %>">
-	                <%= link_to category.name, books_path(category: category.name), class:  "link" %>
-	              </li>
-	              <% end %>
-	            </ul>
-	          </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <% Category.all.each do |category| %>
+                <li class="<%= 'active' if params[:category] == category.name %>">
+                  <%= link_to category.name, books_path(category: category.name), class:  "link" %>
+                </li>
+                <% end %>
+              </ul>
+            </li>
 
-	        <!--remote true for hyperlinks-->
-	        <% if user_signed_in? %>
-	          <li><%= link_to "Add Book", new_book_path,  remote: true %></li>
+          <!--remote true for hyperlinks-->
+          <% if user_signed_in? %>
+            <li><%= link_to "Add Book", new_book_path,  remote: true %></li>
             <li><%= link_to "Chat", conversations_path %></li>
-	         <% end %>
+           <% end %>
 
-	      </ul>
+        </ul>
 
-	        <%= form_tag books_path, :method => 'get', class: "navbar-form navbar-right", role: "search" do %>
-	          <p>
-	            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Book Title" %>
-	            <%= submit_tag "Search", :title => nil, class: "btn btn-default", :style => "color: white; background-color:  #1a936f" %>
-	          </p>
-	        <% end %>
+          <%= form_tag books_path, :method => 'get', class: "navbar-form navbar-right", role: "search" do %>
+            <p>
+              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Book Title" %>
+              <%= submit_tag "Search", :title => nil, class: "btn btn-default", :style => "color: white; background-color:  #1a936f" %>
+            </p>
+          <% end %>
 
-	  </div>
-	</nav>
-	 <!-- END NAVBAR-->
+    </div>
+  </nav>
+   <!-- END NAVBAR-->
 
    
 
   <div class="container"> <!--Margin for right and left-->
-	      <%= yield %>
-	    </div>
+        <%= yield %>
+      </div>
 
-	<!--FULL NAVBAR END-->
+  <!--FULL NAVBAR END-->
 
    <div class="container"> <!--Margin for right and left-->
   <!--MODAL CONTAINER-->
   <% if user_signed_in? %>
-  	<div class="container">
-  	  <div class="new-book"></div>
+    <div class="container">
+      <div class="new-book"></div>
 
-  	</div>
-  	<div id="book-modal" class="modal fade"></div>
+    </div>
+    <div id="book-modal" class="modal fade"></div>
   <% end %>
 <!--MODAL CONTAINER ENDS-->
 
 <!--**********************************************************************************8-->
 
-<div id="profile-modal" class="modal fade"></div> <!--MODAL FOR EDIT PROFILE-->
+<center><div id="profile-modal" class="modal fade"></div></center> <!--MODAL FOR EDIT PROFILE-->
 
-<div style="background-color:  #1a936f; color: white; border-radius: 3px">
-<h1>My Profile <%= @user.full_name %></h1>
-</div>
+<div style="background: linear-gradient(90deg, #88d498 50%, #1a936f 50%); border-radius: 3px">
+
+
 
 <%#= image_tag @user.avatar.url.to_s, class: "profpic" %>
 <%#= link_to "Edit", edit_user_path(@user), class: "btn-custom4" %> 
 
-	<div class="content">
 
-	  <div class="card">
-        <%= link_to "Edit", edit_user_path(@user), class: "btn-custom5", remote: true %> <!--EDIT BUTTON-->
-	    <div class="firstinfo"><%= image_tag @user.avatar.url.to_s, class: "profile-show" %>
-	      <div class="profileinfo">
-	        <h1>I'M <%= @user.full_name %></h1>
-	        <h3>E-mail: <%= @user.email %></h3>
-          <p> About Me: </p>
-	        <p class="bio"><%= @user.about_me %></p>
-	      </div>
-	    </div>
+<!-- PROFILE CONTAINER -->
+<div class="container portfolio">
 
-	  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="heading">       
+      <%= link_to "Edit", edit_user_path(@user), class: "btn-custom5", style:"float: right", remote: true %>
+      <p style="font-size: 20pt">My Profile</p>
+      </div>
+    </div>  
+  </div>
 
-	  <div class="badgescard"></div>
+  <div class="bio-info">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="bio-image">
+              <%= image_tag @user.avatar.url.to_s, class: "profile-show" %>
+            </div>      
+          </div>
+        </div>  
+      </div>
+      <div class="col-md-6">
+        <div class="bio-content">
+          <h1>I'M <%= @user.full_name %></h1>
+          <h4>E-mail: <%= @user.email %></h4>
+           <p> About Me: </p>
+          <h4><%= @user.about_me %></h4>
+          <!-- <h6>I am a fresh web designer and I create custom web designs. I'm skilled at writing well-designed, testable and efficient code using current best practices in Web development. I'm a fast learner, hard worker and team player who is proficient in making creative and innovative web pages.</h6>
+          <p>P.S I have no special talent, I'm just passionately curious ;)</p> -->
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
 
-	</div>
-
-
-
-
-
-
+</div>
+<br>

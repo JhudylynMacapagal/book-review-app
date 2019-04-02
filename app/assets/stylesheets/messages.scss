@@ -30,11 +30,11 @@
 
 [class*="col1-"] {
   float: left;
-  padding-left: 1000px;
+  padding-left: 10px;
   
 }
 
-.col1-4 {width: 75%;}
+.col1-4 {width: 116%;}
 
 
 .menu1 {
@@ -45,7 +45,7 @@
 
 .menu1 {
   padding: 8px;
-  margin-bottom: 7px;
+  margin-bottom: 0;
   border-left-style: solid;
   border-left-width: medium;
 }
@@ -69,9 +69,53 @@
 
 .f4 {
 	
-	margin-left: 55px;
+	margin-left: 70px;
 }
 
 .inline-block {
 	font-size: 18px;
+}
+
+.dele {
+  padding-left: 830px;
+  margin-bottom: 10px;
+}
+
+.name {
+  padding-left: 30px;
+  color: black;
+  font-size: 28px;
+  text-decoration: none;
+  font-weight: solid;
+}
+
+
+.profpicsss {
+  height: 120px;
+  width: 120px;
+  margin-left: 40px;
+  border: solid;
+}
+
+.chatbg {
+  background-color: #88d498;
+}
+
+.chatbg2 {
+  background-color: #b5e3be; 
+}
+
+.profpic1 {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+
+#prev {
+  float: right;
+  padding-right: 160px;
+  color: black;
 }

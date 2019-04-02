@@ -163,8 +163,40 @@
   color: white;
   text-align: center;
 }*/
+
+
 /*FOOTER*/
 
+a:hover{
+    text-decoration:none;
+}
+.section-padding {
+  padding: 20px 0;
+}
+.bottom {
+    background-color: #1a936f;
+}
+.bottom .copyright {
+    color: white;
+    font-weight: 600;
+}
+.copyright a {
+    color: white;
+    margin-left: 3px;
+    padding-right: 3px;
+}
+.bottom p {
+    margin-bottom: 0;
+    line-height: 20px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.copyright p span {
+    color: white;
+}
+.bottom .copyright p, .bottom .copyright a:hover{
+    color: lightblue;
+}
 
 
 </style>
@@ -303,7 +335,7 @@
 <% end %>
 
 
-<h1 class="current-category" style="color: white"><%= params[:category] %></h1> <!--CATEGORY DISPLAY-->
+<center><h1 class="current-category" style="color: white"><%= params[:category] %></h1></center> <!--CATEGORY DISPLAY-->
 
 
 <hr class="style13" style="margin-top: 2%">
@@ -326,7 +358,7 @@
 			<!--BookReview Part 3 (11:24)-->
 
 
-
+<center>
  			<!--FLIP BOOK-->
 			<div class="flip-box">
 			  <div class="flip-box-inner">
@@ -352,7 +384,7 @@
 
 			  </div>
 			</div> <!--FLIP BOOK END-->
-
+</center>
 
 		</div>
 
@@ -371,13 +403,30 @@
 <!--WILL PAGINATE-->
 <center> <!--CENTER THE WILL PAGINATE-->
 
-<%= will_paginate @books, renderer: BootstrapPagination::Rails, previous_label: "< Previous", next_label: "Next >", inner_window: 1, outer_window: 0 %>
+<%= will_paginate @books, renderer: BootstrapPagination::Rails, previous_label: "< Previous", next_label: "Next >", inner_window: 1, outer_window: 0%>
 							<!--For labels-->							<!--For box numbers-->
 </center>
 
 <br><br>
 
   </div> <!--end-->
+
+
+<!--Bottom Footer-->
+    <div class="bottom section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+          
+            
+            <div class="copyright">
+              <p>© <span>2019</span> <a href="#" class="transition">Book Review</a> All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--Bottom Footer-->
 
 <!--   <div class="footer">
   <p>Footer</p>

@@ -25,6 +25,14 @@ class ConversationsController < ApplicationController
     redirect_to conversation_messages_path(@conversation)
   end
 
+
+    def destroy
+    #@conversation.destroy
+    #ids = params[:ids].split(",")
+    @conversation.messages = Conversation.where("id in (#{ids})").destroy
+
+  end 
+
   private
     def conversation_params
       params.permit(:sender_id, :recipient_id)

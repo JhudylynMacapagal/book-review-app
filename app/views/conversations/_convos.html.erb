@@ -1,8 +1,9 @@
 <!-- <button type="button" class="btn-custom5" pull-right" href="#myModal" class="trigger-btn" data-toggle="modal">Users</button> -->
 
-  <div class="column is-7">
-    <h3 class="title is-3">Conversations</h3>
+    <h2>Conversations</h2>
+
     <% @conversations.each do |conversation| %>
+
       <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
         <% if conversation.sender_id == current_user.id %>
           <% recipient = User.find(conversation.recipient_id) %>
@@ -12,14 +13,18 @@
         <% unless current_user.id == recipient %>
           <div class="row">
             <div class="col-3 menu">
-              <div class="inline-block">
-                <%= image_tag recipient.avatar.url.to_s, class: "profpic" %>
-                <%= link_to recipient.email, conversation_messages_path(conversation) %>
-                </div>
+                <%= image_tag recipient.avatar.url.to_s, class: "profpicss" %>
+                <%= link_to recipient.email, conversation_messages_path(conversation), class: "names" %>
+                
             </div>
           </div>
         <% end %>
       <% end %>
     <% end %>
-  </div>
-</div>
+<br>
+<button type="button" class="buttonanim pull-right" href="#myModal" class="trigger-btn" data-toggle="modal"><span>View All Users</span></button><!--VIEW ALL USERS BUTTON-->
+<br><br><br><br>
+
+<hr class="style13" style="margin-top: 2%">
+<br>
+
