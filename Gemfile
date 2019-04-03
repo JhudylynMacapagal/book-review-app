@@ -18,6 +18,7 @@ gem 'mini_magick', '~> 4.9', '>= 4.9.3'
 gem 'sidekiq', '~> 5.2', '>= 5.2.5'
 gem 'sinatra', '~> 2.0', '>= 2.0.5'
 gem 'sassc'
+gem 'rails_12factor', group: :production
 #gem 'rails_12factor', group: :production
 
 #gem 'bootstrap', '~> 4.3', '>= 4.3.1'
@@ -51,9 +52,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :production do
-  gem 'rails_12factor'
-end
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
