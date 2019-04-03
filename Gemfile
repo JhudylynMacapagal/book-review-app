@@ -18,6 +18,7 @@ gem 'mini_magick', '~> 4.9', '>= 4.9.3'
 gem 'sidekiq', '~> 5.2', '>= 5.2.5'
 gem 'sinatra', '~> 2.0', '>= 2.0.5'
 gem 'rails_12factor', group: :production
+gem 'sassc'
 
 
 #gem 'bootstrap', '~> 4.3', '>= 4.3.1'
