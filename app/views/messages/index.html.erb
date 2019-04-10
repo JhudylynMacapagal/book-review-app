@@ -1,3 +1,63 @@
 <%= render 'nav' %> 
-<%= render 'form' %> 
 
+  <center>
+    <%= image_tag @conversation.recipient.avatar.url.to_s, class: "profpicsss" %>
+  </center>
+<!--     <div class="name" style="text-align: center;">
+      <%= @conversation.recipient.full_name %>
+    </div> -->
+  <br>
+  <br>
+    <% if @over_five %>
+      <%= link_to "Show previous >>", '?m=all', class:'button is-link', id: "prev" %>
+    <% end %>
+      <section id="messages" class="mb4">
+        <% @messages.each do |message| %>
+          <% if message.body %>
+            <% user = User.find(message.user_id) %>
+              <article class="message is-dark">
+                <div class="message-body">
+                  <div class="container1">
+                    <% if user_signed_in? %>
+                      <% if user.id == current_user.id %>
+                        <div class="col1-4 menu2">
+                          <div class="chatbg">
+                            <div class="inline-block1">
+                              <%= image_tag user.avatar.url.to_s, class: "profpic2" %>  
+                            </div>                          
+                              <div class="block pt4">
+                                <div class="f41"> 
+                                  <%= message.message_time %>
+                                    <strong>  
+                                      <%= message.body %>
+                                    </strong>  
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                      <% else %>
+                        <div class="col1-4 menu1">
+                          <div class="chatbg2">
+                            <div class="inline-block">                       
+                              <%= image_tag user.avatar.url.to_s, class: "profpic1" %>   
+                            </div>
+                              <div class="block pt4">
+                                <div class="f4">
+                                  <strong>
+                                    <%= message.body %>
+                                  </strong>  
+                                    <%= message.message_time %>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                      <% end %>
+                    <% end %>         
+                  </div>
+                </div>
+              </article>
+            <% end %>
+          <% end %>
+        </section>
+
+<%= render 'form' %> 

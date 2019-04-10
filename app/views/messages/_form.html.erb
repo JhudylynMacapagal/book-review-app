@@ -1,59 +1,5 @@
 
-<h3 class="title is-4">
-  <%= image_tag @conversation.recipient.avatar.url.to_s, class: "profpicsss" %> 
-  <span class="name"><%= @conversation.recipient.email %></span></h3>
-  <br>
-  <br>
-  <% if @over_five %>
-    <%= link_to "Show previous >>", '?m=all', class:'button is-link', id: "prev" %>
-  <% end %>
-  <section id="messages" class="mb4">
-    <% @messages.each do |message| %>
-    <% if message.body %>
-      <% user = User.find(message.user_id) %>
-      <article class="message is-dark">
-        <div class="message-body">
-          <div class="container1">
-            <div class="col1-4 menu1">
 
-                <% if user_signed_in? %>
-                  <% if user.id == current_user.id %>
-                  <div class="chatbg">
-              <div class="inline-block">
-                <strong>
-                  <%= image_tag user.avatar.url.to_s, class: "profpic1" %>
-                  <%= user.email %>
-                </strong> 
-                  <%= message.message_time %>
-              </div>
-                <div class="block pt4">
-                  <div class="f4"><%= message.body %></div>
-                </div>
-                  </div>
-
-                  <% else %>
-                  <div class="chatbg2">
-                    <div class="inline-block">
-                <strong>
-                  <%= image_tag user.avatar.url.to_s, class: "profpic1" %>
-                  <%= user.email %>
-                </strong> 
-                  <%= message.message_time %>
-              </div>
-                <div class="block pt4">
-                  <div class="f4"><%= message.body %></div>
-                </div>
-              </div>
-
-                  <% end %>
-                <% end %>
-            </div>
-          </div>
-        </div>
-      </article>
-    <% end %>
-    <% end %>
-  </section>
 
 <%= form_for [@conversation, @message] do |f| %>
   <div class="txt-area">
@@ -61,34 +7,33 @@
     <%= f.text_field :user_id, value: current_user.id, type: "hidden", class: "txt-chat", id: "msgs"  %> 
   </div>
     <div id="index"> 
-    <%= f.submit "Send message", id: "btn-chat", remote: true %>
+    <%= f.submit "Send message", id: "btn-chat", remote: true, return: false %>
     </div>
 <% end %>
 
 <br>
 
-<!-- 
 
+<!-- 
 <script type="text/javascript">
-  $(function(){
-     $('#btn-chat').click(function(){
-       
-       var msg = $('#msgs').val();
-          $.ajax({
-            type: "GET",
-            url: "messages#index",
+  $ ->
+     $('#btn-chat').click(function(r){
+       var msg = $('#msgs').serialize();
+           $.ajax({      
+            type: "POST",
+            url: (this),
             dataType: "JSON",
             data: msg,
-            success:function(data){
-              console.log(data);
-            },
-            error:function(data){
-              console.log(data);
-            }
-          });  
-          return false;  
-          // event.preventDefault();          
-     });  
-  });
-</script>
- -->
+            success:(data) ->
+              alert (data)
+              return false;
+              r.preventDefault();
+            error:(data) ->
+              return false;   
+              )};      
+     
+ })               
+</script> -->
+
+
+

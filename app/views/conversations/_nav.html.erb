@@ -7,50 +7,6 @@
   }
 
 
-
-	/*BUTTON ARROW HOVER ANIMATION*/
-
-	.buttonanim {
-	  display: inline-block;
-	  border-radius: 4px;
-	  background-color: #1a936f;
-	  border: none;
-	  color: #FFFFFF;
-	  text-align: center;
-	  font-size: 18px;
-	  padding: 20px;
-	  width: 200px;
-	  transition: all 0.5s;
-	  cursor: pointer;
-	  margin: 5px;
-	}
-
-	.buttonanim span {
-	  cursor: pointer;
-	  display: inline-block;
-	  position: relative;
-	  transition: 0.5s;
-	}
-
-	.buttonanim span:after {
-	  content: '\00bb';
-	  position: absolute;
-	  opacity: 0;
-	  top: 0;
-	  right: -20px;
-	  transition: 0.5s;
-	}
-
-	.buttonanim:hover span {
-	  padding-right: 25px;
-	}
-
-	.buttonanim:hover span:after {
-	  opacity: 1;
-	  right: 0;
-	}
-
-
   </style>	
 	<nav class="navbar navbar-default" style="background: linear-gradient(to top, #1a936f 0%, #88d498 100%);">
 
@@ -72,7 +28,7 @@
 	                        Swal.fire({
 	                          position: 'top-end',
 	                          type: 'success',
-	                          title: 'Logout successfully!',
+	                          title: 'Signed out successfully!',
 	                          showConfirmButton: false,
 	                          timer: 1500
 	                        })
@@ -102,9 +58,9 @@
 	        <!--remote true for hyperlinks-->
 	        <% if user_signed_in? %>
 	        <!--   <li><%#= link_to "Add Book", new_book_path,  remote: true %></li> -->
-	          <li><%= link_to "Back", root_path %></li>
+	      
 	          
-
+	          <li><a href="#myModal" class="trigger-btn" data-toggle="modal" style="text-decoration:none">View All Users</a></li><!--VIEW ALL USERS BUTTON-->
 
 	           
 	          
@@ -150,7 +106,7 @@
 
 
 <% end %>
-<!--MODAL CONTAINER ENDS-->
-<hr class="style13" style="margin-top: 2%">
-<br>
+
+
+
 

@@ -12,12 +12,12 @@
 	height: 53px;
 	margin-left: 2px;
 	background-color: white; 
-  	color: black; 
-  	border: 2px solid #4CAF50;
+  color: black; 
+  border: 2px solid #4CAF50;
 		#btn-chat:hover {
-  			background-color: #4CAF50;
-  			color: white;
-  		}
+  		background-color: #4CAF50;
+  		color: white;
+  	}
 }
 
 .txt-area {
@@ -26,21 +26,16 @@
 	margin-left:100px;
 }
 
-
-
 [class*="col1-"] {
   float: left;
   padding-left: 10px;
-  
 }
 
 .col1-4 {width: 116%;}
 
-
 .menu1 {
   margin: 0;
   padding: 0;
-
 }
 
 .menu1 {
@@ -50,31 +45,56 @@
   border-left-width: medium;
 }
 
+.menu2 {
+  margin: 0;
+  padding: 0;
+}
+
+.menu2 {
+  padding: 8px;
+  margin-bottom: 0;
+  border-right-style: solid;
+  border-right-width: medium;
+}
 
 .container1 {
- 
   padding: 5px;
   margin: 10px 0;
   width: 900px;
   padding-left: 100px;
 }
 
-
 .container1::after {
   content: "";
   clear: both;
   display: table;
-
 }
 
 .f4 {
-	
 	margin-left: 70px;
+  margin-top: -40px;
 }
 
-.inline-block {
-	font-size: 18px;
+.f41 {
+  float: right;
+  padding-right: 70px;
+  margin-left: 70px;
+  margin-top: -35px;
 }
+
+
+.inline-block {
+	font-size: 11px;
+  margin-left: 5px;
+  display: inline-block;
+}
+ 
+.inline-block1 {
+  font-size: 11px;
+  margin-right: 20px;
+  display: inline-block;
+  padding-left: 850px;
+} 
 
 .dele {
   padding-left: 830px;
@@ -82,40 +102,49 @@
 }
 
 .name {
-  padding-left: 30px;
   color: black;
-  font-size: 28px;
+  text-align: center;
+  font-size: 20px;
   text-decoration: none;
   font-weight: solid;
 }
 
-
 .profpicsss {
-  height: 120px;
-  width: 120px;
-  margin-left: 40px;
-  border: solid;
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
 }
 
 .chatbg {
   background-color: #88d498;
+  height: 70px;
+  width: 905px;
 }
 
 .chatbg2 {
-  background-color: #b5e3be; 
+  background-color: #c6dabf;  
+  height: 70px;
 }
 
 .profpic1 {
+  float: left;
   height: 50px;
   width: 50px;
-  border-radius: 50%;
   margin-top: 10px;
-  margin-left: 10px;
+  border-radius: 50px;
 }
 
+.profpic2 {
+  height: 50px;
+  width: 50px;
+  margin-top: 10px;
+  border-radius: 50px;
+}
 
 #prev {
   float: right;
   padding-right: 160px;
-  color: black;
-}
+  color: black;}
+
+
+

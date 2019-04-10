@@ -1,6 +1,56 @@
 <!-- <button type="button" class="btn-custom5" pull-right" href="#myModal" class="trigger-btn" data-toggle="modal">Users</button> -->
 
-    <h2>Conversations</h2>
+<head>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> remove para maclick agad/pop up yun add book modal--> 
+<!------ Include the above in your HEAD tag ---------->
+
+<style>
+
+.pic_ina
+{
+    height:90px;
+    width:30%;
+    float:left;
+}
+.con_ina
+{
+    height:100px;
+    width:67%;
+    margin-left:3%;
+    float:left;
+}
+.btn_inr
+{
+    float:right;
+    margine-top:25px;
+}
+
+.container2 {
+  margin: 5px 0;
+  width: 1100px;
+  padding-left: 40px;
+}
+
+.con_inaa {
+  text-align: center;
+  color: black;
+  font-size: 28px;
+  text-decoration: none;
+  font-weight: solid;
+}
+
+</style>
+
+</head>
+
+
+    <center> <h2>Conversations</h2> </center>
+    <br>
+<!--MODAL CONTAINER ENDS-->
+<hr class="style13" style="margin-top: 2%">
+
+    <br><br><br>
 
     <% @conversations.each do |conversation| %>
 
@@ -11,20 +61,22 @@
           <% recipient = User.find(conversation.sender_id) %>
         <% end %>
         <% unless current_user.id == recipient %>
-          <div class="row">
-            <div class="col-3 menu">
-                <%= image_tag recipient.avatar.url.to_s, class: "profpicss" %>
-                <%= link_to recipient.email, conversation_messages_path(conversation), class: "names" %>
-                
-            </div>
-          </div>
-        <% end %>
+<div class="container2">
+  <div class="col-md-4">
+        <div class="alert alert-success">
+        <div class="panel-body">
+           <%= image_tag recipient.avatar.url.to_s, class: "profpicss" %>
+            <div class="con_inaa">
+            <%= recipient.full_name %>
+            </div>             
+        </div>
+        <button type="button" class="btn btn-success btn-xs btn_inr"><%= link_to "chat", conversation_messages_path(conversation), class: "names" %></button>
+        </div>
+  </div>
+  </div>        
+  <% end %>
       <% end %>
     <% end %>
-<br>
-<button type="button" class="buttonanim pull-right" href="#myModal" class="trigger-btn" data-toggle="modal"><span>View All Users</span></button><!--VIEW ALL USERS BUTTON-->
-<br><br><br><br>
 
-<hr class="style13" style="margin-top: 2%">
-<br>
+
 
